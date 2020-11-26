@@ -1,13 +1,26 @@
 package com.example.demo.model;
 
 import org.springframework.stereotype.Component;
+import org.springframework.data.annotation.Id;
+
 
 public class Customer {
+
+    @Id
+    public String id;
 
     private int customerId;
     private String customerFirstName;
     private String customerLastName;
     private String customerEmail;
+
+    public Customer(){}
+
+    public Customer(String customerFirstName, String customerLastName, String customerEmail) {
+        this.customerFirstName = customerFirstName;
+        this.customerLastName = customerLastName;
+        this.customerEmail = customerEmail;
+    }
 
     public int getCustomerId() {
         return customerId;
