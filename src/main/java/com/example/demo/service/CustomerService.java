@@ -16,7 +16,6 @@ public class CustomerService {
 
         customer.setCustomerId(customerIdCount);
         customerList.add(customer);
-        customerList.add(customer);
         customerIdCount++;
         return customer;
     }

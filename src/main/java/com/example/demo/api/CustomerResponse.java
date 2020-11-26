@@ -30,4 +30,14 @@ public class CustomerResponse {
     public Customer getCustomer(@PathVariable(value="customerId") int customerId){
         return customerService.getCustomer(customerId);
     }
+
+    @PutMapping(value="/{customerId}")
+    public Customer updateCustomer(@PathVariable(value="customerId") int customerId,@RequestBody Customer customer){
+        return customerService.updateCustomer(customerId, customer);
+    }
+
+    @DeleteMapping(value = "/{customerId}")
+    public void deleteCustomer(@PathVariable(value="customerId") int customerId){
+        customerService.deleteCustomer(customerId);
+    }
 }
