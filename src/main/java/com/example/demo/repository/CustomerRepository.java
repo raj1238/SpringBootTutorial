@@ -12,7 +12,7 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
 
     List<Customer> findAll();
 
-    void delete(Customer b);
+    void delete(Customer customer);
 
     void deleteAll();
 

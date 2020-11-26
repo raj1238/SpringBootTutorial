@@ -4,9 +4,11 @@ import com.example.demo.model.Customer;
 import com.example.demo.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CustomerService {
 
     @Autowired

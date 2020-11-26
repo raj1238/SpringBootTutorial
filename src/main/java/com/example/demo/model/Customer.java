@@ -1,9 +1,10 @@
 package com.example.demo.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 import org.springframework.data.annotation.Id;
 
-
+@Document(collection = "customer")
 public class Customer {
 
     @Id
