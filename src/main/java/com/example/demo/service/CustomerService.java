@@ -1,14 +1,37 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Customer;
+import com.example.demo.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface CustomerService extends MongoRepository<Customer, String>  {
+public class CustomerService {
 
-    public Customer findByFirstName(String customerFirstName);
-    public List<Customer> findByLastName(String customerLastName);
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    public List<Customer> findAll() {
+        return customerRepository.findAll();
+    }
+
+    public Customer findById(String id) {
+        return customerRepository.findOneById(id);
+    }
+
+    public Customer save(Customer book) {
+        return customerRepository.save(book);
+    }
+
+    public void delete(Customer book) {
+        customerRepository.delete(book);
+    }
+
+    public void deleteAll() {
+        customerRepository.deleteAll();
+    }
+
 
 }
 

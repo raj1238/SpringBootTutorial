@@ -1,14 +1,20 @@
-package com.example.demo.service;
+package com.example.demo.repository;
 
 import com.example.demo.model.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CustomerRepository extends MongoRepository<Customer, String> {
 
-    public Customer findByFirstName(String customerFirstName);
-    public List<Customer> findByLastName(String customerLastName);
+    Customer findOneById(String id);
+
+    List<Customer> findAll();
+
+    void delete(Customer b);
+
+    void deleteAll();
 
 }
 

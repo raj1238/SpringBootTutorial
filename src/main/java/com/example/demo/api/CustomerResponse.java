@@ -16,28 +16,23 @@ public class CustomerResponse {
 
     @PostMapping
     public Customer addCustomer(@RequestBody Customer customer){
-
         return customerService.save(customer);
 
     }
 
     @GetMapping
     public List<Customer> getCustomers(){
-        return customerService.getCustomers();
+        return customerService.findAll();
     }
 
     @GetMapping(value="/{customerId}")
-    public Customer getCustomer(@PathVariable(value="customerId") int customerId){
-        return customerService.getCustomer(customerId);
-    }
-
-    @PutMapping(value="/{customerId}")
-    public Customer updateCustomer(@PathVariable(value="customerId") int customerId,@RequestBody Customer customer){
-        return customerService.updateCustomer(customerId, customer);
+    public Customer getCustomer(@PathVariable(value="customerId") String customerId){
+        return customerService.findById(customerId);
     }
 
     @DeleteMapping(value = "/{customerId}")
-    public void deleteCustomer(@PathVariable(value="customerId") int customerId){
-        customerService.deleteCustomer(customerId);
+    public void deleteCustomer(@PathVariable(value="customerId") String customerId){
+        Customer deleted = customerService.findById(customerId);
+        customerService.delete(deleted);
     }
 }
