@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Customer;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Component
 public class CustomerService {
 
     private int customerIdCount=1;
@@ -19,7 +21,7 @@ public class CustomerService {
         return customer;
     }
 
-    public List<Customer> getCustomerList(){
+    public List<Customer> getCustomers(){
         return customerList;
     }
 
