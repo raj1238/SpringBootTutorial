@@ -17,7 +17,7 @@ public class CustomerResponse {
     @PostMapping
     public Customer addCustomer(@RequestBody Customer customer){
 
-        return customerService.addCustomer(customer);
+        return customerService.save(customer);
 
     }
 
