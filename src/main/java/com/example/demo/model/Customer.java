@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 import org.springframework.data.annotation.Id;
@@ -10,9 +11,13 @@ public class Customer {
     @Id
     public String id;
 
+    @JsonProperty("Id")
     private int customerId;
+    @JsonProperty("firstName")
     private String customerFirstName;
+    @JsonProperty("lastName")
     private String customerLastName;
+    @JsonProperty("email")
     private String customerEmail;
 
     public Customer(){}
