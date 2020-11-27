@@ -28,6 +28,14 @@ public class Customer {
         this.customerEmail = customerEmail;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public int getCustomerId() {
         return customerId;
     }

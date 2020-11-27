@@ -1,5 +1,7 @@
 package com.example.demo.api;
 
+import com.example.demo.converter.CustomerConverter;
+import com.example.demo.dto.CustomerDTO;
 import com.example.demo.model.Customer;
 import com.example.demo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +16,14 @@ public class CustomerResponse {
     @Autowired
     private CustomerService customerService;
 
+    private CustomerConverter customerConverter = new CustomerConverter();
+
     @PostMapping
-    public Customer addCustomer(@RequestBody Customer customer){
-        return customerService.save(customer);
+    public CustomerDTO addCustomer(@RequestBody CustomerDTO customerDTO){
+
+        Customer customer = customerConverter.DTOToEntity(customerDTO);
+        Customer saved =  customerService.save(customer);
+        return customerConverter.entityToDTO(saved);
 
     }
 
